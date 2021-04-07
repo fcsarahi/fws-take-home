@@ -1,0 +1,34 @@
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Pokemon Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Abilities Column -->
+  <ng-container matColumnDef="abilities">
+    <mat-header-cell *matHeaderCellDef> Abilities </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.abilities}} </mat-cell>
+  </ng-container>
+
+  <!-- Forms Column -->
+  <ng-container matColumnDef="forms">
+    <mat-header-cell *matHeaderCellDef> Forms </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.forms}} </mat-cell>
+  </ng-container>
+
+  <!-- Species Column -->
+  <ng-container matColumnDef="species">
+    <mat-header-cell *matHeaderCellDef> Species </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.species}} </mat-cell>
+  </ng-container>
+
+  <!-- Types Column -->
+  <ng-container matColumnDef="types">
+    <mat-header-cell *matHeaderCellDef> Types </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.types}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
