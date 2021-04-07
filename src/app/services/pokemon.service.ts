@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AbilityDetails } from '../shared/models/ability';
 import { FormDetails } from '../shared/models/form';
 import { PokemonDetail, PokemonWrapper } from '../shared/models/pokemon';
+import { SpecieDetail } from '../shared/models/specie';
 import { TypeDetails } from '../shared/models/type';
 
 @Injectable()
@@ -23,6 +24,10 @@ export class PokemonService {
     return this.http.get<PokemonDetail>(url);
   }
 
+  getPokemonDetailByName(name: string): Observable<PokemonDetail> {
+    return this.http.get<PokemonDetail>('https://pokeapi.co/api/v2/pokemon/' + name);
+  }
+
   getPokemonsByAbility(ability: string): Observable<AbilityDetails> {
     return this.http.get<AbilityDetails>('https://pokeapi.co/api/v2/ability/' + ability);
   }
@@ -33,5 +38,9 @@ export class PokemonService {
 
   getPokemonsByType(type: string): Observable<TypeDetails> {
     return this.http.get<TypeDetails>('https://pokeapi.co/api/v2/type/' + type);
+  }
+
+  getPokemonDetailBySpecie(url: string): Observable<SpecieDetail> {
+    return this.http.get<SpecieDetail>(url);
   }
 }

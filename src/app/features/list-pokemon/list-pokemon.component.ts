@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Pokemon, PokemonRow, PokemonWrapper } from 'src/app/shared/models/pokemon';
@@ -30,9 +31,11 @@ export class ListPokemonComponent implements OnInit {
   start: number = 0;
   limit: number = 15;
   end: number = this.limit + this.start;
+  selectedRowIndex = -1;
 
   constructor(private pokemonService: PokemonService,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<PokemonRow>([]);
@@ -56,6 +59,10 @@ export class ListPokemonComponent implements OnInit {
   updateIndex() {
     this.start = this.end;
     this.end = this.limit + this.start;
+  }
+
+  showPokemonDetail(pokemon: Pokemon) {
+    this.router.navigate(['/pokemons/detail', pokemon.name]);
   }
 
   private getPokemonDetails(pokemons: Pokemon[]) {

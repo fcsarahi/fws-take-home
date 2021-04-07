@@ -12,12 +12,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { CardPokemonComponent } from '../card-pokemon/card-pokemon.component';
 
 @NgModule({
   declarations: [
     PokemonsComponent,
     ListPokemonComponent,
-    FilterPokemonComponent
+    FilterPokemonComponent,
+    CardPokemonComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatSelectModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [
     PokemonService,

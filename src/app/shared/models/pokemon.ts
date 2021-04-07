@@ -21,6 +21,8 @@ export interface PokemonDetail {
   forms: Form[];
   species: Specie;
   types: TypeWrapper[];
+  weight: number;
+  height: number;
 }
 
 export interface PokemonRow {
