@@ -1,1 +1,43 @@
-<p>filter-pokemon works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <strong>Filter</strong>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-md-3">
+          <mat-form-field>
+            <mat-label>Select attribute</mat-label>
+            <mat-select formControlName="attribute">
+              <mat-option value="1">Abilities</mat-option>
+              <mat-option value="2">Forms</mat-option>
+              <mat-option value="3">Types</mat-option>
+            </mat-select>
+            <mat-error *ngIf="filterForm.controls.attribute.hasError('required')">
+              Attribute is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-3">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Attribute name" formControlName="name">
+            <mat-error *ngIf="filterForm.controls.name.hasError('required')">
+              Attribute name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-1">
+          <button mat-raised-button color="primary" type="submit"
+            [disabled]="!filterForm.valid">Send</button>
+        </div>
+        <div class="col-md-1">
+          <button mat-raised-button color="accent" type="reset"
+            [disabled]="filterForm.pristine" (click)="resetFirstBatch()">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

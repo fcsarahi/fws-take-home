@@ -5,7 +5,13 @@
 <div class="container">
   <div class="row padding-y">
     <div class="col-md-12">
-      <app-list-pokemon [pokemons]="pokemons"></app-list-pokemon>
+      <app-filter-pokemon (pokemonFiltered)="setPokemonFiltered($event)"
+        (clearFiltered)="clearFilters()"></app-filter-pokemon>
+    </div>
+  </div>
+  <div class="row padding-y">
+    <div class="col-md-12">
+      <app-list-pokemon [pokemonWrapper]="pokemons"></app-list-pokemon>
     </div>
   </div>
 </div>

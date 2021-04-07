@@ -9,6 +9,6 @@ export class PokemonResolverService {
   constructor(private pokemonService: PokemonService) { }
 
   resolve() {
-    return this.pokemonService.getPokemonBatch(20, 0);
+    return this.pokemonService.getFirstPokemonBatch();
   }
 }

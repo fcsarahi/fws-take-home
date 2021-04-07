@@ -10,12 +10,23 @@ import { Pokemon, PokemonWrapper } from 'src/app/shared/models/pokemon';
 export class PokemonsComponent implements OnInit {
   
   title = 'Pokemons App Take Home';
-  pokemons: Pokemon[] = [];
+  pokemons: PokemonWrapper;
+  private firstPokemonBatch: PokemonWrapper;
 
   constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.pokemons = (<PokemonWrapper>(this.activatedRoute.snapshot.data['pokemons'])).results;
+    this.pokemons = (<PokemonWrapper>(this.activatedRoute.snapshot.data['pokemons']));
+    this.firstPokemonBatch = Object.assign({}, this.pokemons);
+  }
+
+  setPokemonFiltered(pokemons: PokemonWrapper){
+    pokemons.isFiltered = true;
+    this.pokemons = pokemons;
+  }
+
+  clearFilters() {
+    this.pokemons = Object.assign({}, this.firstPokemonBatch);
   }
 
 }
