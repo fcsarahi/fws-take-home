@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { PokemonsComponent } from './pokemons.component';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { ListPokemonComponent } from '../list-pokemon/list-pokemon.component';
@@ -24,7 +23,6 @@ import { CardPokemonComponent } from '../card-pokemon/card-pokemon.component';
   ],
   imports: [
     CommonModule,
-    MatToolbarModule,
     MatTableModule,
     MatSnackBarModule,
     MatFormFieldModule,

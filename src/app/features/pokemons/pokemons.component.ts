@@ -9,7 +9,6 @@ import { Pokemon, PokemonWrapper } from 'src/app/shared/models/pokemon';
 })
 export class PokemonsComponent implements OnInit {
   
-  title = 'Pokemons App Take Home';
   pokemons: PokemonWrapper;
   private firstPokemonBatch: PokemonWrapper;
 

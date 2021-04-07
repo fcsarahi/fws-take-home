@@ -1,17 +1,17 @@
 <mat-card class="pokemon-detail">
   <mat-card-header>
-    <mat-card-title>{{pokemonDetail.name}}</mat-card-title>
-    <mat-card-subtitle>{{specieDetail.name}}</mat-card-subtitle>
+    <mat-card-title>{{pokemonDetail?.name}}</mat-card-title>
+    <mat-card-subtitle>{{specieDetail?.name}}</mat-card-subtitle>
   </mat-card-header>
   <img class="pokemon-image" [src]="pokemonUrlImage" alt="Pokemon">
   <mat-card-content class="pokemon-content">
     <p>
       Abilities: {{ abilities }} <br>
-      Weight: {{ pokemonDetail.weight }} <br>
-      Height: {{ pokemonDetail.height }} <br>
-      Order: {{ specieDetail.order }} <br>
-      Color: {{ specieDetail.color.name }} <br>
-      Shape: {{ specieDetail.shape.name }}
+      Weight: {{ pokemonDetail?.weight }} <br>
+      Height: {{ pokemonDetail?.height }} <br>
+      Order: {{ specieDetail?.order }} <br>
+      Color: {{ specieDetail?.color?.name }} <br>
+      Shape: {{ specieDetail?.shape?.name }}
     </p>
   </mat-card-content>
   <mat-card-actions>
